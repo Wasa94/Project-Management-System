@@ -1,0 +1,9 @@
+.hidden {
+    display: none;
+}
+
+.centerDate {
+    display: block;
+    margin: auto;
+    margin-top: 2px;
+}

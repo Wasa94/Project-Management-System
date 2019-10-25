@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+.box {
+    max-width: 80%;
+    width: 100%;
+}
+
+.selected {
+    background-color: #ff4081;
+  }

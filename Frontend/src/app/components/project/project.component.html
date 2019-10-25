@@ -1,0 +1,35 @@
+<div class="wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>{{ title }}</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form" [formGroup]="createForm" (ngSubmit)="create()">
+
+            <mat-card-content>
+                <mat-form-field class="example-full-width" [ngClass]="{'hidden': hideCode}">
+                    <input matInput placeholder="Code" formControlName="code">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Name" formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Project Manager</mat-label>
+                    <mat-select [(value)]="selectedProjectManager" formControlName="assignee">
+                        <mat-option [value]="projectManager" *ngFor="let projectManager of projectManagers">{{projectManager}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </mat-card-content>
+
+            <button mat-stroked-button color="accent" class="btn-block"
+                [disabled]="!createForm.valid">{{buttonText}}</button>
+            <button mat-stroked-button color="accent" class="btn-block" style="margin-top: 10px;"
+                (click)="cancel()">Cancel</button>
+
+        </form>
+    </mat-card>
+</div>

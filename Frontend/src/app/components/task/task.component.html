@@ -1,0 +1,61 @@
+<div class="wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>{{ title }}</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form" [formGroup]="createForm" (ngSubmit)="create()">
+
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Status</mat-label>
+                    <mat-select [(value)]="selectedStatus" formControlName="status">
+                        <mat-option [value]="status" *ngFor="let status of statuses">
+                            {{status}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput type="number" min="0" max="100" placeholder="Progress" formControlName="progress">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Description" formControlName="description">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Project</mat-label>
+                    <mat-select [(value)]="selectedProject" formControlName="project">
+                        <mat-option [value]="project.value" *ngFor="let project of projects">
+                            {{project.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Developer</mat-label>
+                    <mat-select [(value)]="selectedDeveloper" formControlName="assignee">
+                        <mat-option [value]="developer" *ngFor="let developer of developers">
+                            {{developer}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="centerDate">
+                    <input matInput [matDatepicker]="picker" placeholder="Deadline" [min]="minDate"
+                        formControlName="deadline">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+            </mat-card-content>
+
+            <button mat-stroked-button color="accent" class="btn-block"
+                [disabled]="!createForm.valid">{{buttonText}}</button>
+            <button mat-stroked-button color="accent" class="btn-block" style="margin-top: 10px;"
+                (click)="cancel()">Cancel</button>
+
+        </form>
+    </mat-card>
+</div>

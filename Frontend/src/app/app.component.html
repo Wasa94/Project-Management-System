@@ -1,0 +1,10 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <div><a target="_blank" class="logo">Project Management System</a></div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="changepassword" routerLinkActive="active" *ngIf="logged()">Change Password</a>
+    <a mat-button routerLinkActive="active" (click)="logout()" *ngIf="logged()">Log out</a>
+  </span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
