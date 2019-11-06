@@ -89,7 +89,7 @@ export class TaskComponent implements OnInit {
             progress: data.progress,
             status: data.status
           });
-          alert(this.user);
+
           if (this.user && this.user.role == "Project Manager") {
             this.createForm.controls['project'].disable();
           } else if (this.user && this.user.role == "Developer") {
